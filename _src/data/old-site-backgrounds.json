@@ -1,0 +1,220 @@
+{
+ "about-us": [
+  "about.webp",
+  "life.webp"
+ ],
+ "accelerators": [
+  "accelerator.webp",
+  "digitization-7261158_1920.webp"
+ ],
+ "accelerators__agentic-ai": [
+  "header2.webp"
+ ],
+ "accelerators__no-code-low-code": [
+  "header4.webp"
+ ],
+ "accelerators__qa-automation": [
+  "header5.webp"
+ ],
+ "accelerators__tech-debt-reduction": [
+  "header3.webp"
+ ],
+ "blogs": [
+  "landpress-course-background-full-scaled.webp"
+ ],
+ "blogs__agentic-ai-for-enterprise-support": [],
+ "blogs__agentic-ai-in-support-the-future-of-autonomous-intelligent-and-scalable-service-management": [],
+ "blogs__ai-powered-software-forward-engineering-services-revolutionizing-development-excellence": [],
+ "blogs__from-erp-to-ai-reimagining-oracle-landscapes-with-alpha-nets-enterprise-grade-intelligence": [],
+ "blogs__gcc-support-modernization-ai-driven-solutions-for-global-capability-centers": [],
+ "blogs__generative-ai-for-transforming-financial-audits": [],
+ "blogs__reimagining-the-sdlc-in-the-age-of-agentic-ai": [],
+ "blogs__the-cio-transformation-playbook-12-weeks-from-firefighter-to-strategic-catalyst": [],
+ "business-services": [
+  "bizops-1.webp",
+  "worktop-tech-repair-hero-2.webp"
+ ],
+ "business-services__asset-management-field-services-operations": [
+  "header54.webp"
+ ],
+ "business-services__contact-center-operations": [
+  "header50.webp"
+ ],
+ "business-services__content-moderation": [
+  "header51.webp"
+ ],
+ "business-services__finance-accounting-operations": [
+  "header52.webp"
+ ],
+ "business-services__global-capability-center-hiring-operations": [
+  "header18-1.webp"
+ ],
+ "business-services__hr-operations": [
+  "header18.webp"
+ ],
+ "business-services__procurement-operations": [
+  "header53.webp"
+ ],
+ "business-services__supply-chain-management-operations": [
+  "header7.webp"
+ ],
+ "case-studies": [
+  "header51.webp"
+ ],
+ "case-studies__accelerating-fintech-innovation-with-scalable-qa-automation": [
+  "header55.webp"
+ ],
+ "case-studies__empowering-digital-commerce-transformation-for-global-electronics-leader": [
+  "header7.webp"
+ ],
+ "case-studies__enhancing-e-commerce-support-for-a-global-cosmetics-leader-in-apac": [
+  "header11.webp"
+ ],
+ "case-studies__manufacturing-erp-process-re-engineered": [
+  "header59.webp"
+ ],
+ "case-studies__powering-global-gaming-experiences-for-sony-interactive-entertainment": [
+  "header57.webp"
+ ],
+ "case-studies__powering-global-intercompany-excellence-for-a-semiconductor-leader": [
+  "header56.webp"
+ ],
+ "case-studies__shot-with-geforce": [
+  "header58.webp"
+ ],
+ "case-studies__streamlining-erp-access-management": [
+  "header31.webp"
+ ],
+ "consumer-packaged-goods": [
+  "header11.webp"
+ ],
+ "contact": [
+  "header18-1.webp"
+ ],
+ "education-and-elearning": [
+  "header37.webp"
+ ],
+ "energy-and-utilities": [
+  "header39.webp"
+ ],
+ "enterprise-engineering": [
+  "gallery2.webp",
+  "bizcore8.webp"
+ ],
+ "enterprise-engineering__data-engineering-and-analytics": [
+  "header33.webp"
+ ],
+ "enterprise-engineering__data-observability": [
+  "header17.webp"
+ ],
+ "enterprise-engineering__devsecops": [
+  "header24.webp"
+ ],
+ "enterprise-engineering__digital-transformation": [
+  "header34.webp"
+ ],
+ "enterprise-engineering__enterprise-application-support": [
+  "header16.webp"
+ ],
+ "enterprise-engineering__erp-implementation": [
+  "header31.webp"
+ ],
+ "enterprise-engineering__integration-middleware": [
+  "header32.webp"
+ ],
+ "enterprise-engineering__it-strategy-dev": [
+  "header30.webp"
+ ],
+ "finance-and-banking": [
+  "header48.webp"
+ ],
+ "hi-tech": [
+  "header33.webp"
+ ],
+ "home": [],
+ "how-we-engage": [
+  "finpath-loan-hero.webp",
+  "engage.webp"
+ ],
+ "infrastructure-and-cloud": [
+  "gallery4.webp",
+  "cloudscape.webp"
+ ],
+ "infrastructure-and-cloud__cloud-migration": [
+  "header19.webp"
+ ],
+ "infrastructure-and-cloud__cloud-transformation": [
+  "header21.jpg"
+ ],
+ "infrastructure-and-cloud__continuous-integration-and-continuous-deployment": [
+  "header49.webp"
+ ],
+ "infrastructure-and-cloud__cyber-security": [
+  "header33.webp"
+ ],
+ "infrastructure-and-cloud__it-helpdesk": [
+  "header15.webp"
+ ],
+ "infrastructure-and-cloud__multi-cloud-operations": [
+  "header20.webp"
+ ],
+ "infrastructure-and-cloud__network-operations": [
+  "header22.webp"
+ ],
+ "legal-and-compliance": [
+  "header46.webp"
+ ],
+ "life-sciences-and-healthcare": [
+  "header40.webp"
+ ],
+ "logistics-and-transportation": [
+  "header42.webp"
+ ],
+ "manufacturing": [
+  "header36.webp"
+ ],
+ "media-and-entertainment": [
+  "header45.webp"
+ ],
+ "our-vision": [
+  "business-1.jpg",
+  "gallery2.webp"
+ ],
+ "privacy-policy": [],
+ "product-engineering": [
+  "business-slide-a.webp",
+  "worktop-tech-repair-hero-2.webp"
+ ],
+ "product-engineering__product-lifecycle-management": [
+  "header12.webp"
+ ],
+ "product-engineering__software-development": [
+  "header28.webp"
+ ],
+ "product-engineering__technology-and-product": [
+  "header34.webp"
+ ],
+ "public-sector-and-government": [
+  "header47.webp"
+ ],
+ "real-estate-and-construction": [
+  "header44.webp"
+ ],
+ "retail-and-ecommerce": [
+  "header38.webp"
+ ],
+ "talent": [
+  "slide3.jpg",
+  "technova-why-alphanet.webp"
+ ],
+ "team-members": [
+  "finpath-loan-hero.webp",
+  "team.webp"
+ ],
+ "telecommunications": [
+  "header43.webp"
+ ],
+ "travel-hospitality-and-tourism": [
+  "header41.webp"
+ ]
+}
