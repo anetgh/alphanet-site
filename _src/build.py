@@ -6,7 +6,7 @@ Reads copy from _src/newcontent.py (new Word-document copy) and
 _src/data/old-site-pages.json (verbatim text from anetcorp.com), then writes
 plain HTML pages that GitHub Pages can serve as-is.
 """
-import html, json, os, re, shutil, sys
+import html, json, os, re, shutil, sys, urllib.parse
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "_src")
@@ -1282,6 +1282,77 @@ def build_careers():
     page("careers/", "Careers", t["desc"], body, subnav=about_subnav("careers"), keywords="talent jobs join our team open positions")
 
 
+def land_path(px, py, w, h):
+    """Natural Earth 110m land (public domain) as one compact SVG path, equirectangular, relative integer-ish deltas."""
+    with open(os.path.join(ROOT, "_src", "data", "ne_110m_land.geojson"), encoding="utf-8") as f:
+        feats = json.load(f)["features"]
+    d = []
+    for ft in feats:
+        g = ft["geometry"]
+        polys = g["coordinates"] if g["type"] == "MultiPolygon" else [g["coordinates"]]
+        for poly in polys:
+            pts = [(px(lon), py(lat)) for lon, lat in poly[0]]
+            xs, ys = [p[0] for p in pts], [p[1] for p in pts]
+            if max(xs) < 0 or min(xs) > w or max(ys) < 0 or min(ys) > h or (max(xs) - min(xs) < 1.5 and max(ys) - min(ys) < 1.5):
+                continue
+            seg, (cx, cy) = [f"M{pts[0][0]} {pts[0][1]}"], pts[0]
+            for x, y in pts[1:]:
+                dx, dy = round(x - cx, 1), round(y - cy, 1)
+                if dx or dy:
+                    seg.append(f"l{dx:g} {dy:g}")
+                    cx, cy = round(cx + dx, 1), round(cy + dy, 1)
+            d.append("".join(seg) + "z")
+    return "".join(d)
+
+
+def contact_map():
+    """World map of the offices: Natural Earth land on an equirectangular grid with pins and arcs."""
+    lon0, lon1, lat0, lat1, k = -170, 180, 80, -58, 3
+    px = lambda lon: round((lon - lon0) * k, 1)
+    py = lambda lat: round((lat0 - lat) * k, 1)
+    w, h = (lon1 - lon0) * k, (lat0 - lat1) * k
+    pins = {p[0]: (px(p[2]), py(p[1]), p[3], o["id"]) for _, offs in NC.CONTACT_REGIONS for o in offs for p in o["pins"]}
+    grid = "".join(f'<line x1="{px(lon)}" y1="0" x2="{px(lon)}" y2="{h}"/>' for lon in range(-150, lon1, 30))
+    grid += "".join(f'<line x1="0" y1="{py(lat)}" x2="{w}" y2="{py(lat)}"/>' for lat in range(60, lat1, -30))
+    links = [("Santa Clara", "Windsor"), ("Windsor", "Brentford"), ("Brentford", "Amsterdam"), ("Amsterdam", "Mohali"),
+             ("Mohali", "Bengaluru"), ("Bengaluru", "Singapore"), ("Santa Clara", "Brentford")]
+
+    def arc(a, b):
+        (x1, y1), (x2, y2) = pins[a][:2], pins[b][:2]
+        lift = max(14, ((x2 - x1) ** 2 + (y2 - y1) ** 2) ** .5 * .22)
+        return f'<path d="M{x1} {y1} Q{round((x1 + x2) / 2, 1)} {round(min(y1, y2) - lift, 1)} {x2} {y2}"/>'
+    dots = "".join(
+        f'<g class="pin" data-office="{oid}" transform="translate({x} {y})"><circle class="pin__pulse" r="8"/><circle class="pin__dot" r="6"/>'
+        f'<text class="pin__label" x="{18 if side == "r" else -18}" y="6" text-anchor="{"start" if side == "r" else "end"}">{E(name)}</text></g>'
+        for name, (x, y, side, oid) in pins.items())
+    return (f'<svg class="presence__svg" viewBox="0 0 {w} {h}" role="img" aria-label="Map of Alpha Net offices in North America, Europe and Asia">'
+            f'<defs><clipPath id="presence-clip"><rect width="{w}" height="{h}"/></clipPath></defs>'
+            f'<g class="presence__grid">{grid}</g><path class="presence__land" clip-path="url(#presence-clip)" d="{land_path(px, py, w, h)}"/><g class="presence__arcs">{"".join(arc(a, b) for a, b in links)}</g>{dots}</svg>')
+
+
+def contact_office_card(o):
+    arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>'
+    sites = "".join(
+        f'<div class="office__site"><span class="office__city">{E(city)}</span><address>{E(addr)}</address>'
+        f'<a class="office__dir" href="https://www.google.com/maps/search/?api=1&amp;query={urllib.parse.quote_plus(addr)}" target="_blank" rel="noopener">'
+        f'Get directions{arrow}<span class="sr-only"> to {E(city)} (opens in a new tab)</span></a></div>' for city, addr in o["sites"])
+    fax = f'<span class="office__fax">{E(o["fax"])}</span>' if o["fax"] else ""
+    return (f'<article class="office" data-office="{o["id"]}"><h4 class="office__country">{E(o["country"])}</h4><p class="office__entity">{E(o["entity"])}</p>'
+            f'{sites}<div class="office__contact"><a class="office__tel" href="tel:{o["tel"][0]}">{E(o["tel"][1])}</a>{fax}</div></article>')
+
+
+def contact_presence(ctx, lede, caption):
+    offices = [o for _, offs in NC.CONTACT_REGIONS for o in offs]
+    stats = [(len(offices), "Countries"), (len(NC.CONTACT_REGIONS), "Regions"), (sum(len(o["sites"]) for o in offices), "Offices")]
+    stat_html = "".join(f'<li><strong>{n}</strong><span>{E(t)}</span></li>' for n, t in stats)
+    regions = "".join(f'<div class="region"><h3 class="region__name">{E(name)}</h3><div class="region__list">{"".join(contact_office_card(o) for o in offs)}</div></div>'
+                      for name, offs in NC.CONTACT_REGIONS)
+    return (f'<section class="presence reveal"><div class="wrap"><div class="presence__head"><div><span class="eyebrow">Global presence</span>'
+            f'<h2 class="t-h2">{E(NC.CONTACT_PRESENCE_TITLE)}</h2></div><div><p class="presence__lede">{E(lede)}</p><ul class="presence__stats">{stat_html}</ul></div></div>'
+            f'<div class="presence__map">{contact_map()}</div></div></section>\n'
+            f'<section class="module reveal"><div class="wrap">{module_head(ctx, NC.CONTACT_OFFICES_TITLE, caption)}<div class="regions">{regions}</div></div></section>')
+
+
 def build_contact():
     c = OLD["contact"]
 
@@ -1299,20 +1370,11 @@ def build_contact():
                     out.append(m_logos(ctx, "Trusted by Leading Brands", g["logos"][0]["imgs"]))
                 continue
             if s["title"] == "Our Global Presence":
-                out.append(m_rich(ctx, s["title"], [p["x"] for p in g["p"]]))
+                # one combined section: map + offices (office text lives in NC.CONTACT_REGIONS)
+                offices_sec = next(x for x in secs if x["title"] == "Explore Our Office Locations")
+                out.append(contact_presence(ctx, g["p"][0]["x"], classify(offices_sec)["p"][0]["x"]))
                 continue
             if s["title"] == "Explore Our Office Locations":
-                def office_lines(desc):
-                    lines = []
-                    for x in desc.split("\n"):
-                        num = x.strip()
-                        if re.fullmatch(r"\+?[\d ]{8,}", num):
-                            lines.append(f'<a href="tel:{num.replace(" ", "")}">{E(num)}</a>')
-                        else:
-                            lines.append(E(x))
-                    return "<br>".join(lines)
-                offices = "".join(f'<div class="office"><h3>{E(b["title"])}</h3><p>{office_lines(b["desc"])}</p></div>' for b in g["box"])
-                out.append(f'<section class="module reveal"><div class="wrap">{module_head(ctx, s["title"], g["p"][0]["x"] if g["p"] else None)}<div class="offices">{offices}</div></div></section>')
                 continue
             out.append(render_section(ctx, s, "contact"))
         out.append('<div style="height:110px"></div>')

@@ -214,3 +214,41 @@ INDUSTRIES = {
     "technology-and-saas": ("Technology & SaaS", "AI-native product development, enterprise RAG, multi-agent systems, and AI platform engineering."),
 }
 INDUSTRIES_TITLE = "Industries We Serve"
+
+# Contact page: offices grouped by region. Text and numbers are the old site's; `pins` are (label, lat, lon) for the map.
+CONTACT_PRESENCE_TITLE = "Wherever your business runs, we're nearby"
+CONTACT_OFFICES_TITLE = "Visit or call an office"
+CONTACT_REGIONS = [
+    ("Americas", [
+        {"id": "us", "country": "United States", "entity": "Alpha Net Consulting LLC.",
+         "sites": [("Santa Clara, California", "3211 Scott Blvd, Ste. #203, Santa Clara, CA 95054, USA")],
+         "tel": ("+14083434070", "+1 408 343 4070"), "fax": "Fax +1 408 762 2638",
+         "pins": [("Santa Clara", 37.35, -121.96, "r")]},
+        {"id": "ca", "country": "Canada", "entity": "Alpha Net RWORLD IT Solutions Inc.",
+         "sites": [("Windsor, Ontario", "3440 Peter Street Windsor, Ontario, Canada N9C 4C9")],
+         "tel": ("+14083434075", "+1 408 343 4075"), "fax": None,
+         "pins": [("Windsor", 42.30, -83.00, "r")]},
+    ]),
+    ("Europe", [
+        {"id": "uk", "country": "United Kingdom", "entity": "Alpha Net IT LTD.",
+         "sites": [("Brentford, England", "950 Great West Road, The Profile West, Brentford, England, TW8 9ES"),
+                   ("Livingston, Scotland", "8 Deer Park, # 107, Fairways Business Park, Livingston, EH54 8GA")],
+         "tel": ("+442081632821", "+44 20 8163 2821"), "fax": None,
+         "pins": [("Brentford", 51.49, -0.31, "l")]},
+        {"id": "nl", "country": "Netherlands", "entity": "Alpha Net Solutions B.V",
+         "sites": [("Amsterdam", "John M Keynesplein 10 1066EP, Amsterdam, Netherland")],
+         "tel": ("+14083434070", "+1 408 343 4070"), "fax": None,
+         "pins": [("Amsterdam", 52.37, 4.90, "r")]},
+    ]),
+    ("Asia-Pacific", [
+        {"id": "in", "country": "India", "entity": "Anet Solutions Pvt. Ltd.",
+         "sites": [("Mohali", "E-62, Industrial Area, Phase 8, Mohali, India - 160055"),
+                   ("Bengaluru", "Bldg 5, Kasaba Hobli, Bangalore North, Bengaluru, Karnataka - 560045")],
+         "tel": ("+919041333150", "+91 90413 33150"), "fax": None,
+         "pins": [("Mohali", 30.70, 76.72, "r"), ("Bengaluru", 12.97, 77.59, "r")]},
+        {"id": "sg", "country": "Singapore", "entity": "Alpha Net Solutions Pte. Ltd.",
+         "sites": [("Singapore", "114 Lavender Street # 12-78, CT Hub 2, Room 8B, Singapore 338729")],
+         "tel": ("+6566687214", "+65 6668 7214"), "fax": None,
+         "pins": [("Singapore", 1.31, 103.86, "l")]},
+    ]),
+]

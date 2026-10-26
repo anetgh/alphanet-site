@@ -206,6 +206,21 @@
     document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("is-in"); });
   }
 
+  /* Contact: link map pins and office cards on hover/focus */
+  var pins = document.querySelectorAll(".pin[data-office]");
+  if (pins.length) {
+    var setActive = function (id, on) {
+      document.querySelectorAll('[data-office="' + id + '"]').forEach(function (el) { el.classList.toggle("is-active", on); });
+    };
+    document.querySelectorAll(".pin[data-office], .office[data-office]").forEach(function (el) {
+      var id = el.getAttribute("data-office");
+      el.addEventListener("mouseenter", function () { setActive(id, true); });
+      el.addEventListener("mouseleave", function () { setActive(id, false); });
+      el.addEventListener("focusin", function () { setActive(id, true); });
+      el.addEventListener("focusout", function () { setActive(id, false); });
+    });
+  }
+
   /* Copyright year */
   document.querySelectorAll("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
 })();
