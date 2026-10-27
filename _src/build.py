@@ -1463,12 +1463,7 @@ def build_home():
 <div class="careers__ctas">{btn(ctx, "Explore Careers", "careers/", kind="secondary", icon="arrow-ur")}{btn(ctx, "Apply Today", "mailto:" + EMAIL + "?subject=Careers%20at%20Alpha%20Net", icon="arrow-ur")}</div></div>
 <div class="careers__media">{media(ctx, "petals.svg")}<div class="careers__frame">{media(ctx, bg_img("talent", 0), "")}</div></div></section>'''
 
-        blogs = OLD["blogs"]
-        band = f'''<section class="insights-band reveal"><div class="insights-band__grid"><div class="insights-band__copy"><h2>Featured Insights</h2><p>{E(blogs["desc"])}</p></div>
-<div class="insights-band__media">{media(ctx, bg_img("blogs"), "")}</div></div>
-<div class="subscribe"><p class="subscribe__label">Get the latest industry insights delivered to you</p><div class="subscribe__field"><a class="subscribe__email" href="mailto:{EMAIL}?subject=Subscribe%20to%20Alpha%20Net%20insights">{EMAIL}</a>{btn(ctx, "Subscribe", "mailto:" + EMAIL + "?subject=Subscribe%20to%20Alpha%20Net%20insights")}</div></div></section>'''
-
-        return "\n".join([hero, banner, possibilities, feature, grid, split, industries, careers, band])
+        return "\n".join([hero, banner, possibilities, feature, grid, split, industries, careers])
 
     page("", "Alpha Net | " + NC.HOME["hero_title"], NC.HOME["hero_sub"] + " " + NC.HOME["hero_body"], body, after_band=True, home=True,
          keywords="home ai agentic enterprise")

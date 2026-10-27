@@ -3,7 +3,7 @@
 HOME = {
     "hero_title": "Engineering the Next Generation of Enterprise AI",
     "hero_sub": "Looking to build enterprise AI platform, autonomous AI agents or intelligent products? You are at the right place!",
-    "hero_body": "We partner with enterprises to design, engineer, deploy, and scale AI-powered solutions that solve real business problems. From agentic products and knowledge-driven applications to intelligent automation and AI infrastructure, we turn AI possibilities into production reality.",
+    "hero_body": "We partner with enterprises to design, engineer, deploy, and scale AI powered solutions that solve real world business problems. From agentic products and knowledge-driven applications to intelligent automation and AI infrastructure, we turn AI possibilities into production reality.",
     "hero_cta": "Discuss Your AI Initiative",
     "possibilities_title": "From AI Possibilities to Production Reality",
     "possibilities_body": [
