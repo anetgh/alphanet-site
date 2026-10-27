@@ -537,9 +537,8 @@ a.menu__group-title:hover { background: var(--grey); }
 
 .site-footer { background: var(--beige); padding: 56px 0 56px; }
 .site-footer.after-band { margin-top: 0; }
-.footer-top { display: grid; grid-template-columns: 1fr 1.6fr 1fr; gap: 40px; }
-.footer-tagline { font-size: 32px; line-height: 1.2; font-weight: 300; max-width: 300px; }
-.footer-links { display: grid; grid-template-columns: repeat(2, max-content); gap: 26px 30px; align-content: start; padding-left: 70px; }
+.footer-top { display: grid; grid-template-columns: 1.3fr 1fr; gap: 80px; }
+.footer-links { display: grid; grid-template-columns: repeat(2, max-content); gap: 26px 30px; align-content: start; }
 .footer-links a { font-size: 24px; font-weight: 300; line-height: 1.2; text-decoration: none; }
 .footer-links a:hover { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
 .footer-assist h2 { font-size: 28px; line-height: 1.2; font-weight: 400; }
@@ -877,7 +876,7 @@ a.insight:hover .insight__title { text-decoration: underline; text-decoration-th
   .insights-band__copy { padding: 48px var(--gutter) 40px; }
   .insights-band__media { min-height: 420px; }
   .subscribe { position: relative; left: auto; bottom: auto; transform: none; width: auto; margin: -120px var(--gutter) 40px; flex-direction: column; align-items: flex-start; padding: 28px; }
-  .footer-top { grid-template-columns: 1fr 1fr; }
+  .footer-top { grid-template-columns: 1fr; gap: 48px; }
   .footer-assist { grid-column: 1 / -1; }
   .footer-bar { flex-wrap: wrap; margin-top: 64px; }
   .footer-legal { justify-content: flex-start; order: 3; flex-basis: 100%; }
@@ -954,7 +953,6 @@ a.insight:hover .insight__title { text-decoration: underline; text-decoration-th
   .promo-card--tall { min-height: 460px; }
   .footer-top { grid-template-columns: 1fr; }
   .footer-links { grid-template-columns: 1fr 1fr; }
-  .footer-tagline { font-size: 28px; }
   .footer-assist .btn { float: none; }
   .footer-social { flex-wrap: wrap; }
   .cards7, .cards7--3, .icon-cards, .icon-cards--wide, .insight-list, .offices, .people { grid-template-columns: 1fr; }

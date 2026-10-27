@@ -418,7 +418,6 @@ def footer_html(ctx, after_band=False):
     return f'''<footer class="site-footer{" after-band" if after_band else ""}">
 <div class="wrap">
   <div class="footer-top">
-    <p class="footer-tagline">We deliver a broad portfolio of services to clients with a team committed to providing innovation.</p>
     <nav class="footer-links" aria-label="Footer">{"".join(f'<a href="{ctx.u(h)}">{E(t)}</a>' for t, h in links)}</nav>
     <div class="footer-assist">
       <h2>How can we assist you?</h2>
