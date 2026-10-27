@@ -321,7 +321,6 @@ a.menu__group-title:hover { background: var(--grey); }
 /* ---------- Home hero ---------- */
 
 .home-hero { padding-top: 165px; text-align: center; }
-.home-hero .eyebrow { margin-bottom: 19px; }
 .home-hero .t-hero { max-width: 640px; margin-inline: auto; }
 
 .coverflow { position: relative; height: 336px; margin-top: 34px; overflow-x: clip; }

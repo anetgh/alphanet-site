@@ -1412,7 +1412,6 @@ def build_home():
             sl.append(f'<a class="coverflow__slide" href="{E(ctx.u(href))}" data-pos="hidden-r">{media(ctx, img, title, eager=i < 5)}<span class="coverflow__chip">{E(chip)}</span>'
                       f'<span class="coverflow__card"><span class="coverflow__meta"><span>{E(typ)}</span></span><span class="coverflow__title">{E(title)}</span></span></a>')
         hero = f'''<section class="home-hero"><div class="wrap">
-<span class="eyebrow">Welcome to Alpha Net</span>
 <h1 class="t-hero">{E(H["hero_title"])}</h1>
 <div class="coverflow-wrap"><div class="coverflow" data-coverflow aria-roledescription="carousel" aria-label="Featured">{"".join(sl)}</div>
 <div class="carousel-controls"><button class="ctrl" type="button" data-cf-pause aria-label="Pause carousel">{I["pause"]}{I["play"]}</button><button class="ctrl" type="button" data-cf-prev aria-label="Previous slide">{I["chev-l"]}</button><button class="ctrl" type="button" data-cf-next aria-label="Next slide">{I["chev-r"]}</button></div></div>
