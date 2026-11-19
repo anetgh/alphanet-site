@@ -1457,7 +1457,7 @@ def build_home():
         industries = m_cards7(ctx, NC.INDUSTRIES_TITLE, ind_cards, link=("See All Industries", "industries/"), cols4=False)
 
         talent = OLD["talent"]
-        join = next(b for b in talent["blocks"] if b["t"] == "p" and b["x"].startswith("We believe"))
+        join = next(b for b in talent["blocks"] if b["t"] == "p" and b["x"].startswith("At Alpha Net, we excel"))
         careers = f'''<section class="careers reveal"><div class="careers__copy"><span class="eyebrow">Alpha Net Careers</span><h2 class="t-sans-xl">Join Our Team</h2><p>{E(join["x"])}</p>
 <div class="careers__ctas">{btn(ctx, "Explore Careers", "careers/", kind="secondary", icon="arrow-ur")}{btn(ctx, "Apply Today", "mailto:" + EMAIL + "?subject=Careers%20at%20Alpha%20Net", icon="arrow-ur")}</div></div>
 <div class="careers__media">{media(ctx, "petals.svg")}<div class="careers__frame">{media(ctx, bg_img("talent", 0), "")}</div></div></section>'''
