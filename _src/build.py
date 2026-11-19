@@ -1433,7 +1433,7 @@ def build_home():
             else:
                 cards.append(f'<a class="impact" href="{E(ctx.u(hrefs[i]))}">{media(ctx, pill_imgs[i], t)}<span class="impact__stat"><strong>{E(st["v"])}</strong><span>{E(st["x"])}</span></span>'
                              f'<span class="impact__card"><span class="eyebrow eyebrow--sm">Capability</span><span class="impact__title">{E(t)}</span></span></a>')
-        possibilities = f'''<section class="module reveal"><div class="wrap">{module_head(ctx, H["possibilities_title"], H["possibilities_body"][0] + chr(10) + H["possibilities_body"][1], link=("See All Solutions", "agentic-product-engineering/"))}</div>
+        possibilities = f'''<section class="module reveal"><div class="wrap">{module_head(ctx, H["possibilities_title"], H["possibilities_body"][0] + chr(10) + H["possibilities_body"][1], link=("Explore our Capabilities", "agentic-product-engineering/"))}</div>
 <div class="hscroll" data-hscroll><div class="hscroll__track">{"".join(cards)}</div><div class="wrap"><div class="hscroll__dots"></div></div></div></section>'''
 
         feature = f'''<section class="feature reveal"><div class="wrap"><div class="feature__copy"><span class="eyebrow">{E(H["accelerators_title"])}</span><h2 class="t-promo">{E(H["accelerators_headline"])}</h2>
